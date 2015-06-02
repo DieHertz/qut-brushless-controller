@@ -1,0 +1,7 @@
+# Pin Definitions #
+
+Setting the correct pin definitions is very important, so you will want to check them multiple times to make sure they are correct. Once you are certain, you will not need to change them again unless you rearrange the pins for some reason. If you followed the [example circuit](circuit#Example_Circuit.md), you won't have to change much, but you should still double check that everything matches up.
+
+If you are reprogramming a commercial ESC, you will need to figure out the pins yourself. The order of the phases (A,B,C) is not important, but you must match the resistor feedback circuits with it's respective phase (i.e. phase A MOSFETs feed into ADC\_A). The easiest way to find these out is to figure out the MOSFET driving scheme in use, then trace the connections using a multimeter continuity function (it makes a sound when the leads are making a connection).
+
+Simply make a copy a file that looks like "`/code/config/BLDC_pindefs_*ESC-NAME*.h`", replace the ESC name with your unique ESC name, and fill out the pin definitions inside. You will then need to edit the "`/code/config/BLDC_config.h`" file to include your new pindef file (Do NOT include the old one as well, it will use whichever appears first).
